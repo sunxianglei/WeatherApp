@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.xianglei.weatherapp.adapter.ForecastListAdapter
+import com.xianglei.weatherapp.domain.Forecast.RequestForecastCommand
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.async
+import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +21,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         rlv_forecast.layoutManager = LinearLayoutManager(this)
-        rlv_forecast.adapter = ForecastListAdapter(items)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        async(){
+            val weekForecast = RequestForecastCommand("94043").execute()
+            uiThread {
+                rlv_forecast.adapter = ForecastListAdapter(weekForecast)
+            }
+        }
     }
 }
