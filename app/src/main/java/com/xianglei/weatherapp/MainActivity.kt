@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.xianglei.weatherapp.adapter.ForecastListAdapter
 import com.xianglei.weatherapp.domain.Forecast.RequestForecastCommand
+import com.xianglei.weatherapp.extensions.toastOnce
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.uiThread
@@ -25,10 +26,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        async(){
+        async{
             val weekForecast = RequestForecastCommand("94043").execute()
             uiThread {
-                rlv_forecast.adapter = ForecastListAdapter(weekForecast)
+                rlv_forecast.adapter = ForecastListAdapter(weekForecast, { view, position -> toastOnce("position" + position) })
             }
         }
     }
