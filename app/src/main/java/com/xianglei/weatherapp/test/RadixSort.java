@@ -1,5 +1,7 @@
 package com.xianglei.weatherapp.test;
 
+import java.util.Arrays;
+
 /**
  * 基数排序
  * 第一次：先取个位数作为行索引，依次存放到二维数组（行为0~9，列为未排序数组个数）中，遇到相同的列数会依次增加，
@@ -14,6 +16,54 @@ package com.xianglei.weatherapp.test;
 public class RadixSort implements SortAlgorithm {
     @Override
     public void sort(int[] array) {
+        long before = System.currentTimeMillis();
+        radixSort(array);
+        long after = System.currentTimeMillis();
+        System.out.println("RadixSortTime-->" + (after - before));
+    }
 
+    private void radixSort(int[] array) {
+        int max = array[0];
+        final int length = array.length;
+        for (int i = 1; i < length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        int time = 0;//数组最大值位数
+        while (max > 0) {
+            max /= 10;
+            time++;
+        }
+
+        int k = 0; //重新放入数组的索引
+        int n = 1; //位值，如1，10，100
+        int m = 1; //当前在哪一位
+        int[][] temp = new int[10][length]; //数组的第一维表示该位数值，二维表示具体的值
+        int[] order = new int[10]; //数组order[i]用来表示该位是i的数的个数
+        while (m <= time) {
+
+            for (int num : array) {
+                int lsd = (num / n) % 10;//获取该位的基数0-9
+                temp[lsd][order[lsd]] = num;
+                order[lsd]++;
+            }
+
+            for (int i = 0; i < 10; i++) {
+                if (order[i] != 0) {
+                    for (int j = 0; j < order[i]; j++) {
+                        array[k] = temp[i][j];//基于m位的重新放入数组中
+                        k++;
+                    }
+                }
+                order[i] = 0;//复位
+            }
+            System.out.println("第" + m + "位排序：" + Arrays.toString(array));
+            n *= 10;
+            k = 0;//复位
+            m++;
+        }
+
+        System.out.println("基数排序后：" + Arrays.toString(array));
     }
 }
