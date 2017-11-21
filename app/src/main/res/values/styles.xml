@@ -7,22 +7,5 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
-    <declare-styleable name="PeriodProgress">
-        <!--文字大小-->
-        <attr name="progress_text_size" format="dimension"></attr>
-        <!--未完成阶段文字颜色-->
-        <attr name="progress_text_color" format="color"></attr>
-        <!--完成阶段文字颜色-->
-        <attr name="progress_text_finish_color" format="color"></attr>
-        <!--圆形半径-->
-        <attr name="progress_circle_radius" format="dimension"></attr>
-        <!--完成圆形半径-->
-        <attr name="progress_circle_color" format="color"></attr>
-        <!--未完成线条颜色-->
-        <attr name="progress_line_color" format="color"></attr>
-        <!--已完成线条颜色-->
-        <attr name="progress_line_finish_color" format="color"></attr>
-    </declare-styleable>
 
 </resources>
