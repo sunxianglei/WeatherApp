@@ -1,4 +1,4 @@
-package com.xianglei.weatherapp.`interface`
+package com.xianglei.weatherapp.ui.`interface`
 
 import android.view.View
 

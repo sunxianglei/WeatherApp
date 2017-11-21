@@ -1,4 +1,4 @@
-package com.xianglei.weatherapp.domain.Forecast
+package com.xianglei.weatherapp.domain.model
 
 /**
  * 天气数据解析类（解析服务端的数据，封装成自己需要的数据类）

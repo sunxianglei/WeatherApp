@@ -1,17 +1,18 @@
-package com.xianglei.weatherapp.domain.Forecast
+package com.xianglei.weatherapp.domain.datamapper
 
-import com.xianglei.weatherapp.data.Forecast
-import com.xianglei.weatherapp.data.ForecastResult
+import com.xianglei.weatherapp.data.model.Forecast
+import com.xianglei.weatherapp.data.model.ForecastResult
+import com.xianglei.weatherapp.domain.model.ForecastList
 import java.text.DateFormat
 import java.util.*
-import com.xianglei.weatherapp.domain.Forecast.Forecast as ModelForecast
+import com.xianglei.weatherapp.domain.model.Forecast as ModelForecast
 
 /**
  * Created by sheng on 2017/10/27.
  */
 class ForecastDataMapper{
 
-    fun convertFromDataModel(forecastResult: ForecastResult): ForecastList{
+    fun convertFromDataModel(forecastResult: ForecastResult): ForecastList {
         return ForecastList(forecastResult.city.name, forecastResult.city.country,
                 convertForecastToDomain(forecastResult.list))
     }

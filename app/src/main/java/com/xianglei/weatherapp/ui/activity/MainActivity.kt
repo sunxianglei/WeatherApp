@@ -1,11 +1,12 @@
-package com.xianglei.weatherapp
+package com.xianglei.weatherapp.ui.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import com.xianglei.weatherapp.adapter.ForecastListAdapter
-import com.xianglei.weatherapp.domain.Forecast.RequestForecastCommand
+import com.xianglei.weatherapp.R
+import com.xianglei.weatherapp.domain.command.RequestForecastCommand
 import com.xianglei.weatherapp.extensions.toastOnce
+import com.xianglei.weatherapp.ui.adapter.ForecastListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.uiThread

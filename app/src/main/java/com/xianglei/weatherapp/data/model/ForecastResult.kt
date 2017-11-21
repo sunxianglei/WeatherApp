@@ -1,4 +1,4 @@
-package com.xianglei.weatherapp.data
+package com.xianglei.weatherapp.data.model
 
 /**
  * 天气数据类（服务端返回数据）

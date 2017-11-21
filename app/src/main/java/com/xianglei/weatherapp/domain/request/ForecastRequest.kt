@@ -1,7 +1,7 @@
-package com.xianglei.weatherapp.domain.Forecast
+package com.xianglei.weatherapp.domain.request
 
 import com.google.gson.Gson
-import com.xianglei.weatherapp.data.ForecastResult
+import com.xianglei.weatherapp.data.model.ForecastResult
 import java.net.URL
 
 /**
@@ -14,7 +14,7 @@ class ForecastRequest(val zipCode : String){
         private val URL = "http://samples.openweathermap.org/data/2.5/forecast/daily?id=524901&appid=b1b15e88fa797225412429c1c50c122a1"
     }
 
-    fun execute() : ForecastResult{
+    fun execute() : ForecastResult {
         val forecastJsonStr = URL(URL).readText()
         return Gson().fromJson(forecastJsonStr, ForecastResult::class.java)
     }

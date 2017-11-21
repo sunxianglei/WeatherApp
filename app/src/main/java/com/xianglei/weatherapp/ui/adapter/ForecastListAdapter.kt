@@ -1,4 +1,4 @@
-package com.xianglei.weatherapp.adapter
+package com.xianglei.weatherapp.ui.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import com.xianglei.weatherapp.R
-import com.xianglei.weatherapp.domain.Forecast.Forecast
-import com.xianglei.weatherapp.domain.Forecast.ForecastList
+import com.xianglei.weatherapp.domain.model.Forecast
+import com.xianglei.weatherapp.domain.model.ForecastList
 import com.xianglei.weatherapp.extensions.ctx
 import kotlinx.android.synthetic.main.item_forecast.view.*
 
